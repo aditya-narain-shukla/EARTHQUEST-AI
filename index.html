@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EarthQuest AI — Explore Beyond the Screen</title>
+
+    <meta name="description" content="EarthQuest AI creates personalized outdoor quests using local open-weight AI.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="brand">
+            <div class="brand-icon">🌍</div>
+
+            <div>
+                <h1>EarthQuest<span>AI</span></h1>
+                <p>Explore beyond the screen.</p>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+
+            <div class="ollama-status" id="ollamaStatus">
+                <span class="status-dot"></span>
+                <span id="statusText">Checking AI...</span>
+            </div>
+
+            <button class="icon-button" id="themeButton" title="Toggle theme">
+                ☼
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span>✦</span>
+                    LOCAL-FIRST OUTDOOR AI
+                </div>
+
+                <h2>
+                    Your next adventure
+                    <span>starts outside.</span>
+                </h2>
+
+                <p class="hero-description">
+                    EarthQuest AI turns your free time into personalized
+                    real-world adventures. Powered by open-weight AI running
+                    locally through Ollama.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-button" id="startCreatingButton">
+                        Create My Quest
+                        <span>→</span>
+                    </button>
+
+                    <button class="secondary-button" id="randomQuestButton">
+                        🎲 Surprise Me
+                    </button>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong id="questCount">0</strong>
+                        <span>Quests completed</span>
+                    </div>
+
+                    <div>
+                        <strong id="outsideMinutes">0</strong>
+                        <span>Minutes outside</span>
+                    </div>
+
+                    <div>
+                        <strong id="currentStreak">0</strong>
+                        <span>Day streak</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="earth">
+                    <div class="earth-shine"></div>
+                    <div class="continent continent-one"></div>
+                    <div class="continent continent-two"></div>
+                    <div class="continent continent-three"></div>
+                </div>
+
+                <div class="floating-card card-location">
+                    <span>📍</span>
+                    <div>
+                        <strong>Real World</strong>
+                        <small>That's where the magic happens.</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-ai">
+                    <span>✦</span>
+                    <div>
+                        <strong>AI Generated</strong>
+                        <small>Powered locally by Ollama</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUEST BUILDER -->
+        <section class="quest-section" id="questBuilder">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-label">
+                        QUEST BUILDER
+                    </div>
+
+                    <h3>
+                        Design your adventure.
+                    </h3>
+
+                    <p>
+                        Tell EarthQuest what kind of experience you want.
+                    </p>
+                </div>
+
+                <div class="step-indicator">
+                    <span class="active">01</span>
+                    <span></span>
+                    <span>02</span>
+                    <span></span>
+                    <span>03</span>
+                </div>
+
+            </div>
+
+
+            <div class="builder-grid">
+
+                <!-- LEFT -->
+                <div class="builder-card">
+
+                    <div class="input-group">
+
+                        <label>
+                            How much time do you have?
+                        </label>
+
+                        <div class="time-options">
+
+                            <button class="choice-button active" data-time="15">
+                                <strong>15</strong>
+                                <small>MIN</small>
+                            </button>
+
+                            <button class="choice-button" data-time="30">
+                                <strong>30</strong>
+                                <small>MIN</small>
+                            </button>
+
+                            <button class="choice-button" data-time="60">
+                                <strong>1</strong>
+                                <small>HOUR</small>
+                            </button>
+
+                            <button class="choice-button" data-time="120">
+                                <strong>2</strong>
+                                <small>HOURS</small>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            What sounds good?
+                        </label>
+
+                        <div class="activity-grid">
+
+                            <button class="activity-button active" data-activity="nature exploration">
+                                <span>🌿</span>
+                                <strong>Nature</strong>
+                                <small>Observe & discover</small>
+                            </button>
+
+                            <button class="activity-button" data-activity="walking">
+                                <span>🚶</span>
+                                <strong>Walk</strong>
+                                <small>Move & explore</small>
+                            </button>
+
+                            <button class="activity-button" data-activity="running">
+                                <span>🏃</span>
+                                <strong>Run</strong>
+                                <small>Move your body</small>
+                            </button>
+
+                            <button class="activity-button" data-activity="photography">
+                                <span>📸</span>
+                                <strong>Photography</strong>
+                                <small>Find beauty</small>
+                            </button>
+
+                            <button class="activity-button" data-activity="bird watching">
+                                <span>🐦</span>
+                                <strong>Birding</strong>
+                                <small>Listen & observe</small>
+                            </button>
+
+                            <button class="activity-button" data-activity="mindfulness">
+                                <span>🧘</span>
+                                <strong>Mindfulness</strong>
+                                <small>Slow down</small>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="locationInput">
+                            Optional location
+                        </label>
+
+                        <div class="location-input">
+
+                            <span>📍</span>
+
+                            <input type="text" id="locationInput" placeholder="e.g. local park, neighborhood...">
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="generate-button" id="generateButton">
+                        <span>✦</span>
+                        Generate My Quest
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <!-- RIGHT -->
+                <div class="preview-card">
+
+                    <div class="preview-top">
+
+                        <span class="live-badge">
+                            ● LIVE PREVIEW
+                        </span>
+
+                        <span>EarthQuest AI</span>
+
+                    </div>
+
+                    <div class="preview-content">
+
+                        <span class="preview-icon">
+                            🌲
+                        </span>
+
+                        <h4>
+                            Your adventure will appear here.
+                        </h4>
+
+                        <p>
+                            Configure your preferences and let local AI
+                            create a quest designed to get you moving.
+                        </p>
+
+                    </div>
+
+                    <div class="preview-bottom">
+
+                        <div>
+                            <span>AI</span>
+                            <strong>Ollama</strong>
+                        </div>
+
+                        <div>
+                            <span>DATA</span>
+                            <strong>Local</strong>
+                        </div>
+
+                        <div>
+                            <span>COST</span>
+                            <strong>₹0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUEST RESULT -->
+        <section class="quest-result-section hidden" id="questResult">
+
+            <div class="quest-result-header">
+
+                <div>
+
+                    <div class="section-label">
+                        YOUR QUEST
+                    </div>
+
+                    <h3 id="questTitle">
+                        Loading adventure...
+                    </h3>
+
+                </div>
+
+                <div class="quest-actions">
+
+                    <button class="small-button" id="regenerateButton">
+                        ↻ Regenerate
+                    </button>
+
+                    <button class="small-button" id="closeQuestButton">
+                        × Close
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="mission-card">
+
+                <div class="mission-header">
+
+                    <div class="mission-icon" id="questIcon">
+                        🌿
+                    </div>
+
+                    <div>
+
+                        <div class="mission-meta">
+
+                            <span id="questDuration">
+                                15 MIN
+                            </span>
+
+                            <span>•</span>
+
+                            <span id="questActivity">
+                                NATURE
+                            </span>
+
+                        </div>
+
+                        <h4 id="questSubtitle">
+                            A small adventure awaits.
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-message" id="aiMessage">
+                    Preparing your adventure...
+                </div>
+
+
+                <div class="mission-objectives">
+
+                    <h5>
+                        QUEST OBJECTIVES
+                    </h5>
+
+                    <div id="objectiveList">
+                    </div>
+
+                </div>
+
+
+                <div class="quest-rule">
+
+                    <span>📵</span>
+
+                    <div>
+
+                        <strong>
+                            The EarthQuest Rule
+                        </strong>
+
+                        <p>
+                            Once your quest starts, put your phone away.
+                            The best part happens offline.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mission-footer">
+
+                    <button class="primary-button" id="startQuestButton">
+                        Start Adventure
+                        <span>🌍</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVE QUEST -->
+        <section class="active-quest hidden" id="activeQuest">
+
+            <div class="active-inner">
+
+                <div class="active-status">
+                    <span class="pulse"></span>
+                    ADVENTURE ACTIVE
+                </div>
+
+                <div class="timer" id="timer">
+                    15:00
+                </div>
+
+                <h3>
+                    Put your phone away.
+                </h3>
+
+                <p>
+                    Your quest is waiting outside.
+                </p>
+
+                <div class="active-progress">
+                    <div id="timerProgress"></div>
+                </div>
+
+                <button class="finish-button" id="finishQuestButton">
+                    I’m Back — Complete Quest
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPLETION -->
+        <section class="completion-section hidden" id="completionSection">
+
+            <div class="completion-card">
+
+                <div class="completion-icon">
+                    🌎
+                </div>
+
+                <div class="section-label">
+                    QUEST COMPLETE
+                </div>
+
+                <h3>
+                    You chose the real world.
+                </h3>
+
+                <p>
+                    Nice work. Tell EarthQuest how your adventure went.
+                </p>
+
+
+                <div class="experience-options">
+
+                    <button data-feeling="Amazing">
+                        🤩
+                        <span>Amazing</span>
+                    </button>
+
+                    <button data-feeling="Good">
+                        😊
+                        <span>Good</span>
+                    </button>
+
+                    <button data-feeling="Okay">
+                        😐
+                        <span>Okay</span>
+                    </button>
+
+                    <button data-feeling="Tiring">
+                        😴
+                        <span>Tiring</span>
+                    </button>
+
+                </div>
+
+
+                <textarea id="reflectionInput" placeholder="What did you discover?"></textarea>
+
+
+                <button class="primary-button complete-button" id="completeButton">
+                    Complete Quest
+                    <span>✓</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD -->
+        <section class="dashboard">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        YOUR JOURNEY
+                    </div>
+
+                    <h3>
+                        Small adventures add up.
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        🌱
+                    </div>
+
+                    <div>
+
+                        <span>
+                            OUTDOOR TIME
+                        </span>
+
+                        <strong>
+                            <span id="dashboardMinutes">
+                                0
+                            </span>
+                            min
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        🗺️
+                    </div>
+
+                    <div>
+
+                        <span>
+                            QUESTS
+                        </span>
+
+                        <strong id="dashboardQuests">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        🔥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            STREAK
+                        </span>
+
+                        <strong>
+                            <span id="dashboardStreak">
+                                0
+                            </span>
+                            days
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        🏆
+                    </div>
+
+                    <div>
+
+                        <span>
+                            LEVEL
+                        </span>
+
+                        <strong id="dashboardLevel">
+                            Explorer
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY OPEN -->
+        <section class="open-ai-section">
+
+            <div class="open-ai-content">
+
+                <div class="section-label">
+                    WHY OPEN AI?
+                </div>
+
+                <h3>
+                    AI that knows when
+                    <span>to get out of the way.</span>
+                </h3>
+
+                <p>
+                    EarthQuest uses open-weight AI through Ollama so your
+                    adventures can be generated locally. No cloud AI
+                    account. No subscription. No sending your personal
+                    preferences to someone else's server.
+                </p>
+
+                <div class="open-points">
+
+                    <div>
+                        <span>01</span>
+                        <strong>Private</strong>
+                        <p>Your prompts stay on your machine.</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <strong>Open</strong>
+                        <p>Swap models and change the AI behavior.</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <strong>Affordable</strong>
+                        <p>No per-request AI API bill.</p>
+                    </div>
+
+                    <div>
+                        <span>04</span>
+                        <strong>Offline-ready</strong>
+                        <p>The AI can work without a cloud connection.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="open-ai-visual">
+
+                <div class="code-window">
+
+                    <div class="window-bar">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <pre><code>user → EarthQuest
+        ↓
+    Ollama
+        ↓
+ open-weight model
+        ↓
+ outdoor quest
+        ↓
+     🌳 🌎 🥾</code></pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="footer-brand">
+                🌍 <strong>EarthQuest AI</strong>
+            </div>
+
+            <p>
+                Built to make the screen the shortest part of the adventure.
+            </p>
+
+            <span>
+                Open AI • Local AI • Real World
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <p id="toastMessage">Done</p>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
